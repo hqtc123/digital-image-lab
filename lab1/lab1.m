@@ -1,14 +1,16 @@
-%Copyright 2009 Zhang Yi
+%lab1
 
 img1=imread('lena.bmp');
-%img2=rgb2gray(img1);
-img2=img1;
-figure;
-imshow(img1);
-subplot(2,3,1);
+if ndims(img1)==3 %如果是彩色图像，将其转换为黑白图
+    img2=rgb2gray(img1);
+else
+    img2=img1;
+end
+figure; %打开画图窗口
+subplot(2,3,1); %两行三列显示图像
 imshow(img2);
 title('原图');
-histgram=zeros(256,1);
+histgram=zeros(256,1); %256*1 的全0矩阵
 [row,col]=size(img2);
 n=row*col;
 for i=1:row
@@ -46,7 +48,11 @@ title('均衡化后图');
 subplot(2,3,5);
 plot(histgram);
 title('直方图');
-img2=rgb2gray(img1);
+if ndims(img1)==3
+    img2=rgb2gray(img1);
+else
+    img2=img1;
+end
 prompt={'请输入αD+b中的参数α:','请输入αD+b中的参数b:'};
 def={'1.0','0'};
 answer=inputdlg(prompt,'homework1',1,def);
