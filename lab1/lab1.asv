@@ -1,4 +1,5 @@
-%lab1
+t%lab1
+
 img1=imread('lena.bmp');
 if ndims(img1)==3 %如果是彩色图像，将其转换为黑白图
     img2=rgb2gray(img1);
@@ -52,7 +53,7 @@ if ndims(img1)==3
 else
     img2=img1;
 end
-prompt={'请输入aD+b中的参数a:','请输入aD+b中的参数b:'};
+prompt={'请输入aD+b中的参数a:','请输入D+b中的参数b:'};
 def={'1.0','0'};
 answer=inputdlg(prompt,'homework1',1,def);
 a=str2double(answer{1})
